@@ -10,6 +10,7 @@
     <div id="app">
         <h1>{{ message }}</h1>
         <p>{{ getFullName(firstName, lastName).name }}</p>
+        <a v-bind:href="anotherPageUrl">Another page</a>
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
@@ -18,7 +19,8 @@
             data: {
                 message: 'Hello World',
                 firstName: 'Dayakar',
-                lastName: 'Arumbaka'
+                lastName: 'Arumbaka',
+                anotherPageUrl: 'https://hdayakar.github.io/blog-template/posts/git-commands'
             },
             methods: {
                 getFullName: function(first, last) {
