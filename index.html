@@ -32,6 +32,9 @@
 
         <!-- chaining key modifiers -->
         <input type="text" v-on:keyup.enter.space="pressEnter" placeholder="keyup event works with space and enter">
+    
+        <!-- modifier key -->
+        <input type="text" v-on:keyup.shift.enter="myListener" placeholder="keyup event only works when user press shift and enter key">
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
@@ -61,6 +64,9 @@
                 },
                 pressEnter: function() {
                     alert("You pressed the Enter!");
+                },
+                myListener: function() {
+                    alert("You pressed both shift and enter");
                 }
             }
 
