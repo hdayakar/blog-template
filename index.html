@@ -12,7 +12,7 @@
         <p>{{ getFullName(firstName, lastName).name }}</p>
         <a v-bind:href="anotherPageUrl">Another page</a>
         <!-- <Directive name>:< Directive argument> = "<Directive expression>"-->
-        <button v-on:click="clickedButton">Click here!</button>
+        <button v-on:click="clickedButton('Hello world!', $event)">Click here!</button>
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
@@ -30,8 +30,9 @@
                         name: first + ' ' + last
                     };
                 },
-                clickedButton: function() {
-                    alert("You clicked the button!");
+                clickedButton: function(message, event) {
+                    console.log(event);
+                    alert(message);
                 }
             }
 
