@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact</title>
+</head>
+<body>
+    <div id="contact">
+        <h1>Contact</h1>
+        <form action="">
+            <input type="text" placeholder="Name" v-model="name">
+            <input type="email" placeholder="Email" v-model="email">
+            <input type="text" placeholder="Phone Number" v-model="phone">
+            <textarea placeholder="Message" v-model="message"></textarea>
+            <input type="submit" value="Send">
+        </form>
+        <div>
+            <div>Name: {{ name }}</div>
+            <div>Email: {{ email }}</div>
+            <div>Phone Number: {{ phone }}</div>
+            <div>Message: {{ message }}</div>
+        </div>
+    </div>
+    
+    <script src="../dist/assets/js/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#contact',
+            data: {
+                name: '',
+                email: '',
+                phone: '',
+                message: '',
+            },
+            methods: {
+            }
+        })
+    </script>
+</body>
+</html>
