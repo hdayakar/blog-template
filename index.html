@@ -26,6 +26,12 @@
 
         <!-- prevent default browser action of anchor through prevent modifier on click event-->
         <a href="http://google.com" v-on:click.prevent target="_blank">Or here!</a>
+
+        <!-- key up with modifier enter -->
+        <input type="text" v-on:keyup.enter="pressEnter" placeholder="keyup event works with enter">
+
+        <!-- chaining key modifiers -->
+        <input type="text" v-on:keyup.enter.space="pressEnter" placeholder="keyup event works with space and enter">
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
@@ -52,6 +58,9 @@
                 },
                 showDialog: function() {
                     alert("Hello world!");
+                },
+                pressEnter: function() {
+                    alert("You pressed the Enter!");
                 }
             }
 
