@@ -16,6 +16,15 @@
         
         <!-- show and hides in dom -->
         <div v-show="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, suscipit!</div>
+        
+        <!-- Display the categories as an ordered list with each category's sub-categories as a nested unordered list -->
+        <ol v-for="category in categories">
+            <li>{{ category.name }}
+                <ul v-for="subcategory in category.sub">
+                    <li> {{ subcategory }}</li>
+                </ul>
+            </li>
+        </ol>
     </div>
 
     <script src="../dist/assets/js/vue.js"></script>
@@ -24,7 +33,12 @@
             el: '#about',
             data: {
                 more: false,
-                technologies: "<li>HTML</li><li>CSS</li><li>JS</li>"
+                technologies: "<li>HTML</li><li>CSS</li><li>JS</li>",
+                categories:[
+                    {name: 'Javascript', sub: ['Vue.js', 'React', 'Angular2']},
+                    {name: 'Databases', sub: ['MySQL', 'PostgreSQL', 'MariaDB']},
+                    {name: 'Operating Systems', sub: ['macOS', 'Linux', 'Windows']}
+                ]
             },
             methods: {
             }

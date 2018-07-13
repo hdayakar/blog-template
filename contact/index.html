@@ -22,6 +22,10 @@
             <div>Phone Number: {{ phone }}</div>
             <div>Message: {{ message }}</div>
         </div>
+        <!-- Show the correct paragraph depending on the length of the entered message -->
+        <p v-if="message.length>8">Awesome! Your message is longer than 8 characters. </p>
+        <p v-else-if="message.length>0">Please enter a longer message.</p>
+        <p v-else>Please enter a message.</p>
     </div>
     
     <script src="../dist/assets/js/vue.js"></script>
