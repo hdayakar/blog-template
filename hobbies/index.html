@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hobbies</title>
+</head>
+<body>
+    <div id="hobbies">
+        <h1>Hobbies</h1>
+        <!-- Add a computed property which returns an array of strings with the movie name followed by the release year in parenthesis.
+        Then output these strings as an ordered list. -->
+        <ol>
+            <li v-for="movie in formattedMovies">{{ movie }}</li>
+        </ol>
+        <button v-on:click="addMovie">Add Movie</button>
+    </div>
+
+    <script src="../dist/assets/js/vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#hobbies',
+            data: {
+                movies: [
+                    { name: 'The Matrix', year: 1999 },
+                    { name: 'The Matrix Reloaded', year: 2003 },
+                    { name: 'The Matrix Revolutions', year: 2003 }
+                ]
+            },
+            computed: {
+                formattedMovies: function() {
+                    return this.movies.map(function(movie) {
+                        return movie.name+ ' ('+movie.year+')';
+                    })
+                }
+            },
+            methods: {
+                addMovie: function() {
+                    this.movies.push({
+                        name: 'The Fast and Furious',
+                        year: 2001
+                    })
+                }
+            },
+            watch: {
+                movies: function(movies) {
+                    var newMovie = movies[movies.length -1];
+                    alert(newMovie.name + ' from ' + newMovie.year);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
