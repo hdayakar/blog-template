@@ -10,6 +10,12 @@
     <div id="about">
         <h1>About</h1>
         <ul v-html="technologies"></ul>
+        <button v-on:click="more = !more">More</button>
+        <!-- removes from dom -->
+        <div v-if="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, suscipit!</div>
+        
+        <!-- show and hides in dom -->
+        <div v-show="more">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, suscipit!</div>
     </div>
 
     <script src="../dist/assets/js/vue.js"></script>
@@ -17,6 +23,7 @@
         new Vue({
             el: '#about',
             data: {
+                more: false,
                 technologies: "<li>HTML</li><li>CSS</li><li>JS</li>"
             },
             methods: {
