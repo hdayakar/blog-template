@@ -13,6 +13,19 @@
         <a v-bind:href="anotherPageUrl">Another page</a>
         <!-- <Directive name>:< Directive argument> = "<Directive expression>"-->
         <button v-on:click="clickedButton('Hello world!', $event)">Click here!</button>
+
+        <!-- make click event work only once, with once modifier on click event-->
+        <div>
+            <button v-on:click.once="showDialogOnce">Click only works once!</button>
+        </div>
+
+        <!-- stop propagation through stop modifier on click event-->
+        <div v-on:click="showDialog">
+            <button v-on:click.stop="showDialog">Stop propagation</button>
+        </div>
+
+        <!-- prevent default browser action of anchor through prevent modifier on click event-->
+        <a href="http://google.com" v-on:click.prevent target="_blank">Or here!</a>
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
@@ -33,6 +46,12 @@
                 clickedButton: function(message, event) {
                     console.log(event);
                     alert(message);
+                },
+                showDialogOnce: function() {
+                    alert("Hello world!");
+                },
+                showDialog: function() {
+                    alert("Hello world!");
                 }
             }
 
