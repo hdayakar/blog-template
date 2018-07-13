@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <h1>{{ message }}</h1>
+        <h1 v-cloak>{{ message }}</h1>
         <p>{{ getFullName(firstName, lastName).name }}</p>
         <a v-bind:href="anotherPageUrl">Another page</a>
         <!-- <Directive name>:< Directive argument> = "<Directive expression>"-->
