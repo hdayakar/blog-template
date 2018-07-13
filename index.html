@@ -9,14 +9,25 @@
 <body>
     <div id="app">
         <h1>{{ message }}</h1>
+        <p>{{ getFullName(firstName, lastName).name }}</p>
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
         new Vue({
             el: '#app',
             data: {
-                message: 'Hello World'
+                message: 'Hello World',
+                firstName: 'Dayakar',
+                lastName: 'Arumbaka'
+            },
+            methods: {
+                getFullName: function(first, last) {
+                    return {
+                        name: first + ' ' + last
+                    };
+                }
             }
+
         })
     </script>
 </body>
