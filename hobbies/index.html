@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="hobbies">
-        <h1>Hobbies</h1>
+        <h1>{{ pageTitle | uppercase(false) }}</h1>
         <!-- Add a computed property which returns an array of strings with the movie name followed by the release year in parenthesis.
         Then output these strings as an ordered list. -->
         <ol>
@@ -22,6 +22,7 @@
         new Vue({
             el: '#hobbies',
             data: {
+                pageTitle: 'Hobbies',
                 movies: [
                     { name: 'The Matrix', year: 1999 },
                     { name: 'The Matrix Reloaded', year: 2003 },
@@ -47,6 +48,22 @@
                 movies: function(movies) {
                     var newMovie = movies[movies.length -1];
                     alert(newMovie.name + ' from ' + newMovie.year);
+                }
+            },
+            filters: {
+                uppercase: function(value, onlyFirstCharacter) {
+                    if(!value) {
+                        return '';
+                    }
+
+                    value = value.toString();
+
+                    if(onlyFirstCharacter) {
+                        return value.charAt(0).toUpperCase() + value.slice(1);
+                    }
+                    else {
+                        return value.toUpperCase();
+                    }
                 }
             }
         })
