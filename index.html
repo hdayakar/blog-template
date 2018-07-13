@@ -11,6 +11,7 @@
         <h1>{{ message }}</h1>
         <p>{{ getFullName(firstName, lastName).name }}</p>
         <a v-bind:href="anotherPageUrl">Another page</a>
+        <!-- <Directive name>:< Directive argument> = "<Directive expression>"-->
     </div>
     <script src="dist/assets/js/vue.js"></script>
     <script type="text/javascript">
@@ -20,7 +21,7 @@
                 message: 'Hello World',
                 firstName: 'Dayakar',
                 lastName: 'Arumbaka',
-                anotherPageUrl: 'https://hdayakar.github.io/blog-template/posts/git-commands'
+                anotherPageUrl: 'https://hdayakar.github.io/blog-template/posts/git-commands.html'
             },
             methods: {
                 getFullName: function(first, last) {
