@@ -6,7 +6,7 @@
         <p class="lead">{{ content }}</p>
         <appAuthor :author="author"></appAuthor>
         <br><br>
-        <app-social-sharing @articleWasShared="shares++"></app-social-sharing>
+        <app-social-sharing @articleWasShared="shared('Hello',$event)"></app-social-sharing>
     </div>
 </template>
 
@@ -27,6 +27,13 @@
                 },
                 shares: 0
             };
+        },
+        methods: {
+            shared: function(message, event) {
+                this.shares++;
+                console.log(message);
+                console.log(event);
+            }
         },
         filters: {
             moment: function(value) {
