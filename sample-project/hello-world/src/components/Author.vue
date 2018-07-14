@@ -4,13 +4,6 @@
 
 <script>
     export default {
-        data() {
-            return {
-                author: {
-                    firstName: 'Bo',
-                    lastName: 'Andersen'
-                }
-            };
-        }
+        props: ['author']
     }
 </script>
