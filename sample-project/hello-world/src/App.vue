@@ -1,14 +1,24 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <announcement></announcement>
-                <appArticle></appArticle>
-                <appContact>
-                    <p>Some content</p>
-                    <p slot="top">Contact us and one of our representatives will get back to you as soon as possible.</p>
-                    <p slot="bottom">Do not submit any sensitive information.</p>
-                </appContact>
+    <div>
+        <ul>
+            <li>
+                <a href="#" @click.prevent="activeView = 'app-home'">Home</a>
+            </li>
+            <li>
+                <a href="#" @click.prevent="activeView = 'app-contact'">Contact</a>
+            </li>
+            <li>
+                <a href="#" @click.prevent="activeView = 'HelloWorld'">Hello World</a>
+            </li>
+            <li>
+                <a href="#" @click.prevent="activeView = 'app-article'">Article</a>
+            </li>
+        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <component :is="activeView"></component>
+                </div>
             </div>
         </div>
     </div>
@@ -23,6 +33,11 @@ export default {
   components: {
     HelloWorld,
     Announcement,
+  },
+  data() {
+      return {
+        activeView: 'app-contact'
+      };
   }
 };
 </script>
