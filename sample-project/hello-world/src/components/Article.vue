@@ -2,14 +2,19 @@
     <div class="article">
         <h1>{{ title }}</h1>
         <p>Published on {{ published | moment }}</p>
+        <p>Shares: {{ shares }}</p>
         <p class="lead">{{ content }}</p>
         <appAuthor :author="author"></appAuthor>
+        <br><br>
+        <app-social-sharing @articleWasShared="shares++"></app-social-sharing>
     </div>
 </template>
 
 <script>
     import moment from 'moment';
     import Author from "./Author.vue";
+    import Social from "./Social.vue";
+
     export default {
         data() {
             return {
@@ -19,7 +24,8 @@
                 author: {
                     firstName: 'Bo',
                     lastName: 'Andersen'
-                }
+                },
+                shares: 0
             };
         },
         filters: {
@@ -28,7 +34,8 @@
             }
         },
         components: {
-            appAuthor: Author
+            appAuthor: Author,
+            appSocialSharing: Social
         }
     };
 </script>
