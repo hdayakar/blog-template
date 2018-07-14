@@ -3,3 +3,11 @@ vue init webpack-simple sample-project
 cd sample-project
 npm install
 npm run dev
+
+npm uninstall vue-cli -g
+npm install -g @vue/cli
+vue --version
+
+vue create hello-world
+yarn serve
+yarn build
