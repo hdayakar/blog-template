@@ -4,7 +4,9 @@
             <div class="col-xs-12">
                 <announcement></announcement>
                 <appArticle></appArticle>
-                <h1>test</h1>
+                <appContact>
+                    <p>Do not submit any sensitive information.</p>
+                </appContact>
             </div>
         </div>
     </div>
@@ -18,7 +20,7 @@ export default {
   name: "app",
   components: {
     HelloWorld,
-    Announcement
+    Announcement,
   }
 };
 </script>
