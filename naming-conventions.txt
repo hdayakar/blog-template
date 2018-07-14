@@ -1,0 +1,9 @@
+## camelCase:
+thisIsAnExample
+
+## PascalCase:
+ThisIsAnExample
+
+## kebab-case:
+this-is-an-example
+
